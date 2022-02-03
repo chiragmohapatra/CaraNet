@@ -16,7 +16,7 @@ class PolypDataset(data.Dataset):
         self.augmentations = augmentations
         print(self.augmentations)
         self.images = [image_root + f for f in os.listdir(image_root) if f.endswith('.jpg') or f.endswith('.png')]
-        self.gts = [gt_root + f for f in os.listdir(gt_root) if f.endswith('.png')]
+        self.gts = [gt_root + f for f in os.listdir(gt_root) if f.endswith('.png') or f.endswith('.jpg')]
         self.images = sorted(self.images)
         self.gts = sorted(self.gts)
         self.filter_files()
@@ -121,7 +121,7 @@ class test_dataset:
     def __init__(self, image_root, gt_root, testsize):
         self.testsize = testsize
         self.images = [image_root + f for f in os.listdir(image_root) if f.endswith('.jpg') or f.endswith('.png')]
-        self.gts = [gt_root + f for f in os.listdir(gt_root) if f.endswith('.tif') or f.endswith('.png')]
+        self.gts = [gt_root + f for f in os.listdir(gt_root) if f.endswith('.tif') or f.endswith('.png') or f.endswith('.jpg')]
         self.images = sorted(self.images)
         self.gts = sorted(self.gts)
         self.transform = transforms.Compose([
