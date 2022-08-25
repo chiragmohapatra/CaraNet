@@ -170,8 +170,10 @@ class detect_dataset:
         image = self.rgb_loader(self.images[self.index])
         image = self.transform(image).unsqueeze(0)
         name = self.images[self.index].split('/')[-1]
+        """
         if name.endswith('.jpg'):
             name = name.split('.jpg')[0] + '.png'
+        """
         self.index += 1
         return image, name
 
